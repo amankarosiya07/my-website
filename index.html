@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SkillSwap | Student Skill Exchange</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="#top">SkillSwap</a>
+      <nav aria-label="Main navigation">
+        <a href="#browse">Find students</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="intro">
+      <div class="intro-text">
+        <p class="eyebrow">Student Skill Exchange</p>
+        <h1>Learn from a classmate. Teach what you know.</h1>
+        <p>
+          SkillSwap is a small place for students to find peers for study help,
+          language practice, creative skills, and more.
+        </p>
+        <a class="button primary" href="#browse">Browse students</a>
+      </div>
+      <div class="intro-note" aria-label="Example exchange">
+        <p class="note-title">This week on SkillSwap</p>
+        <p><strong>Ananya</strong> is helping with Python basics.</p>
+        <p><strong>Rahul</strong> is looking for Python help and can teach guitar.</p>
+        <p class="small-text">A good exchange can start with one simple message.</p>
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <h2>How it works</h2>
+      <div class="steps">
+        <article>
+          <span>1</span>
+          <h3>Find a student</h3>
+          <p>Search by a subject or browse the sample profiles below.</p>
+        </article>
+        <article>
+          <span>2</span>
+          <h3>Send a request</h3>
+          <p>Choose a time and write a short message about what you need.</p>
+        </article>
+        <article>
+          <span>3</span>
+          <h3>Meet and learn</h3>
+          <p>Agree on a session and help each other improve.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="browse-section" id="browse">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Find someone to learn with</p>
+          <h2>Student profiles</h2>
+        </div>
+        <p class="result-count" id="resultCount" aria-live="polite"></p>
+      </div>
+
+      <div class="filters" aria-label="Profile filters">
+        <label>
+          Search a subject or skill
+          <input id="searchInput" type="search" placeholder="Example: maths, design, guitar">
+        </label>
+        <label>
+          Show students who can...
+          <select id="filterType">
+            <option value="all">Teach or learn this</option>
+            <option value="teach">Teach this</option>
+            <option value="learn">Want to learn this</option>
+          </select>
+        </label>
+        <button class="button secondary" id="clearFilters" type="button">Clear</button>
+      </div>
+
+      <div class="profile-grid" id="profileGrid"></div>
+      <p class="empty-state" id="emptyState" hidden>No profiles matched that search. Try another subject.</p>
+    </section>
+
+    <section class="tips">
+      <h2>A quick reminder</h2>
+      <p>Keep your first request friendly and clear. Mention what you want to learn and a time that works for you.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>SkillSwap is a simple student project demo. Requests are saved only while this page is open.</p>
+  </footer>
+
+  <dialog id="requestDialog" aria-labelledby="dialogTitle">
+    <form method="dialog" id="requestForm">
+      <button class="close-button" id="closeDialog" type="button" aria-label="Close request form">&times;</button>
+      <p class="eyebrow">Session request</p>
+      <h2 id="dialogTitle">Request a session</h2>
+      <p id="dialogProfile" class="dialog-profile"></p>
+      <label>
+        Suggested time
+        <select id="sessionTime" required>
+          <option value="">Choose a time</option>
+          <option>Weekday after 4:00 PM</option>
+          <option>Saturday morning</option>
+          <option>Sunday afternoon</option>
+        </select>
+      </label>
+      <label>
+        Your message
+        <textarea id="requestMessage" rows="4" required placeholder="Hi! I would like help with..."></textarea>
+      </label>
+      <button class="button primary" type="submit">Send request</button>
+      <p class="form-message" id="formMessage" aria-live="polite"></p>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
